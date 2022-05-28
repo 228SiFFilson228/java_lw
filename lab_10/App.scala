@@ -9,7 +9,7 @@ object CounterDemo {
    val df = spark.read.option("header", "true").csv(path)
    df.show()
    df.createOrReplaceTempView("tourist")
-   spark.sql("select tourist_id, count(tourist_id) as counter from click group by tourist_id").show()
+   spark.sql("select tourist_id, count(tourist_id) as counter from tourist group by tourist_id").show()
    spark.stop()
  }
 }
